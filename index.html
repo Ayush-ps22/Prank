@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Glow-Up Prank 😈</title>
+    <style>
+        body { background: #0f172a; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .slot { background: #1e293b; padding: 15px; border-radius: 12px; width: 300px; text-align: center; }
+        img { max-width: 100%; border-radius: 8px; margin-top: 10px; }
+        
+        /* The Jumpscare Overlay */
+        #jumpscare {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: black;
+            justify-content: center;
+            align-items: center;
+        }
+        #jumpscare img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Glow Up AI ✨</h1>
+    <p>Upload a pic to see the magic.</p>
+
+    <div class="slot">
+        <h3>Upload Image</h3>
+        <input type="file" id="imgInput" accept="image/*">
+        <button id="enhanceBtn" style="margin-top:20px; padding: 10px 20px; cursor: pointer;">Glow Up!</button>
+    </div>
+
+    <!-- The Jumpscare Element -->
+    <div id="jumpscare">
+        <img src="3106.jpg" alt="Surprise">
+    </div>
+
+    <script>
+        const enhanceBtn = document.getElementById('enhanceBtn');
+        const jumpscare = document.getElementById('jumpscare');
+        
+        // Make sure you have a file named 'scream.mp3' in the same folder!
+        const screamAudio = new Audio('scream.mp3'); 
+
+        enhanceBtn.addEventListener('click', () => {
+            // Trigger the jump scare
+            jumpscare.style.display = 'flex';
+            screamAudio.play().catch(e => console.log("User needs to interact with page first for audio"));
+        });
+
+        // Click anywhere to close the scare
+        jumpscare.addEventListener('click', () => {
+            jumpscare.style.display = 'none';
+            screamAudio.pause();
+            screamAudio.currentTime = 0;
+        });
+    </script>
+</body>
+</html>
